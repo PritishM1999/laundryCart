@@ -1,13 +1,13 @@
 const express=require('express');
-const { createOrder } = require('../controllers/orderController');
-
+const { createOrder, getPastOrder } = require('../controllers/orderController');
+const auth = require("../middleware/auth")
 
 const router=express.Router();
 
 // Create Order POST API
-router.post("/create/:id", createOrder);
+router.post("/create", auth , createOrder);
 
-
+router.get("/orders", auth, getPastOrder)
 
 
 
