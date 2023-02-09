@@ -4,7 +4,7 @@ const Order=require("../models/orderSchema");
 // Create Order controller
 const createOrder = async(req,res)=>{
     const neworder=req.body;
-    const {id}=req.params;
+    const {id}=req.userID;
   
     const order=await Order.create({...neworder, userId:id});
     if(!order){
