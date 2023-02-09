@@ -1,0 +1,82 @@
+.orderConfirmationWrapper{
+    position: absolute;
+    top:0;
+    left:0;
+   width: 100vw;
+   height: 100vh;
+   background-color: rgba(0,0,0,0.6);
+   z-index: 1;
+}
+
+.orderConfirmationContainer{
+    position: absolute;
+    width: 29rem;
+    height: 31.5rem;
+    background-color:#FFFFFF;
+    border-radius: 8px;
+    top:60px;
+    left: 33vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.orderTickContainer{
+    margin-top: 3.875rem;
+    width: 7.5rem;
+    height: 7.5rem;
+    border: 0;
+    border-radius: 50%;
+    background-color: #5861AE60;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+:root {
+    --borderWidth: 8px;
+    --height: 4em;
+    --width: 2rem;
+    --borderColor: #5861AE;
+}
+.check {
+    /* background-color: antiquewhite; */
+    display: inline-block;
+    transform: rotate(45deg);
+    margin-left: 2.5rem;
+    margin-top: 0.8rem;
+    height: var(--height);
+    width: var(--width);
+    border-bottom: var(--borderWidth) solid var(--borderColor);
+    border-right: var(--borderWidth) solid var(--borderColor);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
+.orderConfirmationContainer h3{
+    text-align: center;
+    color: #0A1F44;
+    width: 14.5rem;
+    font-weight: 600;
+}
+
+.orderConfirmationContainer p{
+    text-align: center;
+    color: #0A1F44;
+    width: 14.5rem;
+    font-weight: 200;
+    margin-top: 1.5rem;
+}
+
+.orderConfirmationContainer button{
+    border-radius: 22px;
+    border: 0;
+    background-color: #5861AE;
+    color: #FFFFFF;
+    width: 14.5rem;
+    height: 2.75rem;
+    font-size: 1.1rem;
+    margin-top: 2.7rem;
+}
