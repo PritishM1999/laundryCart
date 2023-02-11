@@ -135,3 +135,29 @@
     cursor: pointer;
 }
 
+
+.productTypeContainer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.productTypeNameDescription{
+    display: flex;
+    flex-direction: column;
+    padding-left: 0.4rem;
+}
+
+.productTypeNameDescription span:nth-child(1){
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.productTypeNameDescription span:nth-child(2){
+  color: #76788B;
+  font-family: 'Poppins', sans-serif;
+  font-size: 10px;
+}
+
+
+

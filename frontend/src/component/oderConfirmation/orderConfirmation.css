@@ -80,3 +80,8 @@
     font-size: 1.1rem;
     margin-top: 2.7rem;
 }
+
+.orderConfirmationContainer button:hover{
+    cursor: pointer;
+    background-color: #767ec9;
+}

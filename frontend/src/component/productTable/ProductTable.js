@@ -14,20 +14,32 @@ const ProductTable = () => {
     const [products, setProduct] = useState([]);
     const [orderedProduct, setOrderedProduct] = useState([]);
     const [isSummary, setIsSummary] = useState(false);
-    const [orderConfirmation, setOrderConfirmation]=useState(false)
+    const [orderConfirmation, setOrderConfirmation]=useState(false);
+    const [searchBar, SetSearchBar]=useState("");
 
     const fetchProducts = async () => {
-        const res = await fetch("http://localhost:4000/products", {
+        const res = await fetch("http://localhost:4000/product/products", {
           method: "Get",
           mode: "cors",
         });
     
         const newproducts = await res.json();
+        console.log(newproducts)
         setProduct(newproducts.products);
       };
       useEffect(() => {
         fetchProducts();
       }, []);
+
+      // useEffect(() => {
+      //     if(products && searchBar!==""){
+      //       setProduct(products.filter((item)=> item.name===searchBar))           
+      //     }   
+      // }, [searchBar, products])
+
+      // useEffect(()=>{
+      //     console.log(orderedProduct);
+      // },[orderedProduct]);
 
 
       const proceesClick=()=>{
@@ -44,7 +56,7 @@ const ProductTable = () => {
            <h4>Create Order</h4>
            <div className='searchBarContainer'>
               <img src={search} alt='Search Icon'/>
-              <input/>
+              <input value={searchBar}  onChange={(e)=> SetSearchBar(e.target.value)}/>
            </div>
         </div>
         <div className='productTableWrapper'>
@@ -61,7 +73,7 @@ const ProductTable = () => {
                {products.map((product) => {
                 return (
                   <RowTable
-                    key={product.id}
+                    key={product?._id}
                     product={product}
                     setOrderedProduct={setOrderedProduct}
                     orderedProduct={orderedProduct}
