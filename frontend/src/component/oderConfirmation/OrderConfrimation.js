@@ -1,10 +1,13 @@
 import React from 'react'
+import {useNavigate} from "react-router-dom";
 
 
 
 import "./orderConfirmation.css"
 
 const OrderConfrimation = () => {
+   const navigate=useNavigate();
+
   return (
     <div className='orderConfirmationWrapper'>
      <div className="orderConfirmationContainer">
@@ -13,7 +16,7 @@ const OrderConfrimation = () => {
         </div>
         <h3>Your order is successfully Placed.</h3>
         <p>You can track the delivery in the "Orders" section.</p>
-        <button>Go to Orders</button>
+        <button onClick={()=> navigate("/pastOrders")}>Go to Orders</button>
     </div>
     </div>
     

@@ -8,6 +8,17 @@ import chemicalOn from "../../media/bleach (1).svg";
 import chemicalOff from "../../media/bleach.svg";
 import Dry from "../../media/towel.svg";
 
+
+import tshirts from "../../media/tshirts.png"
+import shirts from "../../media/shirts.png"
+import trouser from "../../media/trouser.png"
+import jeans from "../../media/jeans.png"
+import boxers from "../../media/boxers.png"
+import joggers from "../../media/joggers.png"
+import others from "../../media/others.png"
+
+
+
 import "./productTable.css";
 
 const RowTable = ({ product, setOrderedProduct, orderedProduct }) => {
@@ -41,14 +52,13 @@ const RowTable = ({ product, setOrderedProduct, orderedProduct }) => {
       if (index !== -1) {
         setOrderedProduct(
           orderedProduct.map((item) =>
-            item.id == updatedObject?.id
-              ? {
-                  ...item,
-                  price: price,
-                  quantity: quantity,
-                  totalPrice: quantity * price,
-                }
-              : item
+            {
+              if(item.id==updatedObject.id){
+                 return {...item, price:price, quantity:quantity, totalPrice:price*quantity}
+              }else{
+                return item;
+              }
+            }
           )
         );
       } else {
@@ -202,9 +212,42 @@ const RowTable = ({ product, setOrderedProduct, orderedProduct }) => {
     });
   };
 
+
+
+  const imgSetter=()=>{
+    switch(product.name){
+       case 'T Shirts':
+          return tshirts;
+       case 'Shirts':
+          return shirts;   
+       case 'Trouser':
+          return trouser;
+       case 'Jeans':
+          return jeans;
+       case 'Boxers':
+          return boxers;
+       case 'Joggers':
+          return joggers;
+       default:
+          return others;       
+
+    }
+  }
+
   return (
     <tr className="rowContainer">
-      <td className="TypeColumn">{product.name}</td>
+      <td className="TypeColumn">
+        <div className="productTypeContainer">
+           <img src={imgSetter()} alt="Product Icon" width="45px" height="45px"/>
+        <div className="productTypeNameDescription">
+            <span
+              style={{"color": washing||ironing||dry||chemical||quantity!=0? "#5861AE":"#1D2022" }}
+              >{product.name}
+            </span>
+            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel mattis purus</span>
+        </div>
+        </div>
+      </td>
       <td className="QuantityColumn">
         <input
           className="QuantityColumnRow"

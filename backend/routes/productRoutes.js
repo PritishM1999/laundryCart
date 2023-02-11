@@ -6,7 +6,7 @@ const { getAllProducts, createProduct } = require('../controllers/productControl
 const router=express.Router();
 
 // Create Order POST API
-router.post('/product', createProduct);
+router.post('/create', createProduct);
 // GET All Product API
 router.get("/products", getAllProducts)
 
