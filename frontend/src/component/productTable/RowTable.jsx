@@ -310,11 +310,13 @@ const RowTable = ({ product, setOrderedProduct, orderedProduct }) => {
       <td className="PriceColumn PriceColumnRow">
         {!quantity == 0 && (ironing || washing || dry || chemical) ? (
           <div style={{"display":"flex", "justifyContent":"space-between"}}>
-            <span>{quantity}</span>
-            <span>X</span>
-            <span>{price}</span>
-            <span>=</span>
-            <span>{quantity * price}</span>
+            <div style={{"width":"70%","display":"flex", "justifyContent":"space-evenly", "alignItems":"center" }}>
+            <span style={{"color":"#221919","fontSize":"18px"}}>{quantity}</span>
+            <span style={{"color":"#221919","fontSize":"18px"}}>X</span>
+            <span style={{"color":"#221919","fontSize":"18px"}}>{price}</span>
+            <span  style={{"color":"#221919","fontSize":"18px"}}>=</span>
+            <span  style={{"color":"#5861AE","fontSize":"24px"}}>{quantity * price}</span>
+            </div>
             <button className="resetPriceBtn" onClick={() => resetOrder()}>Reset</button>
           </div>
         ) : (

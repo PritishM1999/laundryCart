@@ -16,7 +16,7 @@ const OrderConfrimation = () => {
         </div>
         <h3>Your order is successfully Placed.</h3>
         <p>You can track the delivery in the "Orders" section.</p>
-        <button onClick={()=> navigate("/pastOrders")}>Go to Orders</button>
+        <button onClick={()=> navigate("/pastOrder")}>Go to Orders</button>
     </div>
     </div>
     

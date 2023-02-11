@@ -3,12 +3,11 @@ const Order=require("../models/orderSchema");
 
 // Create Order controller
 const createOrder = async(req,res)=>{
-    const neworder=req.body;
-<<<<<<< HEAD
+    const neworder=req.body; 
    //  const {data}=req.userID;
-=======
+
     // const {data}=req.userID;
->>>>>>> 3a0e1995e5705d6912e1f3182de3bfbfd105d460
+
   
     const order=await Order.create(neworder);
     if(!order){

@@ -62,7 +62,7 @@ const Summary = ({ setIsSummary, isSummary, summaryData , cancelButton , setCanc
       <div className="order-details">
         <h4>Order Details</h4>
         <div className="orderDetails-table">
-        <table className="orderDetailTableContainer">
+        <table className="postOrderDetailTableContainer">
          {summaryData.orderItems.map((item) => (
          <tr className="orderDetailRow">
            <td className="orderDeatilColumn">{item.name}</td>

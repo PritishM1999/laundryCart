@@ -10,17 +10,17 @@
 }
 .container{
     position: absolute;
-    top: 101px;
-    right: 287px;
+    top: 98px;
+    left:3rem;
     display: grid;
     grid-template-columns: 20% 30% 50%;
     grid-template-rows: 10% 90%;
     z-index: 0;
-    width: 90%;
+    width: 96%;
+   
 }
 
 .orders{
-    grid-column: 2/3;
     display: flex;
     padding-top: 20px;
      /* justify-content: flex-start; */
@@ -29,22 +29,16 @@
     height: 300px;
     margin-bottom: 250px;
 }
-.t{
-    grid-column:2/4 ;
-    grid-row: 2/3;
-    margin-top: 0px;
-    margin-left:50px;
-    
-}
-table{
+
+.t .pastOrdertable{
     border-collapse: collapse;
-    width: 120%;
+    width: 100%;
 }
-table thead tr{
+.pastOrdertable thead tr{
     background-color:  #383737;
 }
 
-thead tr th{
+.pastOrdertable thead tr th{
     width: 11%;
     color: #FFFFFF;
     padding: 0.5rem;
@@ -52,7 +46,7 @@ thead tr th{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: 900;
 }
-tbody tr td{
+.pastOrdertable tbody tr td{
     padding: 0.5rem;
     width: 10%;
     text-align: center;

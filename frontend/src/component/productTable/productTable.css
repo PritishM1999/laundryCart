@@ -1,6 +1,11 @@
 .createOrderWrapper{
     overflow-x: hidden;
-    z-index: 1;
+    z-index: 0;
+    margin-left: 3%;
+    width: 97%;
+    position: absolute;
+    top:7rem;
+    padding-left: 1rem;
 }
 
 .createOrderHeader{
@@ -23,6 +28,7 @@
     display: flex;
     align-items: center;
     width: 15%;
+    margin-bottom: 10px;
 }
 
 .searchBarContainer img{
@@ -95,11 +101,11 @@
 
 .rowContainer{
     border-bottom: 2px solid #E0E0E0 ;
-    padding: 5rem;
 }
 
 .resetPriceBtn{
     border: 0;
+    width: 4.5rem;
     background-color: #5861AE;
     color: white;
     font-family: 'Poppins', sans-serif;
@@ -141,10 +147,12 @@
     display: flex;
     align-items: center;
 }
+
 .productTypeNameDescription{
     display: flex;
     flex-direction: column;
     padding-left: 0.4rem;
+    text-align: left;
 }
 
 .productTypeNameDescription span:nth-child(1){

@@ -87,16 +87,16 @@
     padding: 20px;
     box-shadow: 0px 1px lightgray;
 }
-.orderDetailContainer{
+.postOrderDetailTableContainer{
     margin-left: 1rem;
 }
 
-.orderDetailContainer h3{
+.postOrderDetailTableContainer h3{
  font-size: 1rem;
  font-family: 'Poppins', sans-serif;
 }
 
-.orderDetailTableContainer{
+.postOrderDetailTableContainer{
     width: 100%;
     border-collapse: collapse;
 }

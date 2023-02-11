@@ -1,7 +1,6 @@
 import React, {  useEffect, useState } from 'react'
 import { FaSearch, FaEye } from 'react-icons/fa';
 import "../Oder/PastOrder.css"
-import axios from "axios";
 import Summary from '../summary/Summary';
 import CancelConfirmation from '../cancleConfirmation/CancelConfirmation';
 import Header from '../header/Header';
@@ -27,7 +26,7 @@ const PastOrder = () => {
         });
 
         const newproducts = await  res.json();
-        setOrderDetails(newproducts.result)
+        setOrderDetails(newproducts.products)
     } 
     useEffect(() =>{
         fetchData()
@@ -77,7 +76,7 @@ const PastOrder = () => {
            <SideBar />
             <div className='container'>
                 <div className='orders'>
-                    Orders | 0
+                    Orders | {orderDetails?.length}
                 </div>
                 <div className='create-search'>
                     <div className='create'>
@@ -91,7 +90,7 @@ const PastOrder = () => {
                     </div>
                 </div>
                 <div className='t'>
-                    <table>
+                    <table className='pastOrdertable'>
                         <thead>
                             <tr>
                                 <th>Order Id</th>
@@ -107,10 +106,8 @@ const PastOrder = () => {
                             </tr>
                         </thead>
                         <tbody>
-
                                 {orderDetails.map((item , index) =>{
                                   let date = moment(item.orderDate).format('DD-MMM-YYYY , hh:mm' );
-                                  
                                     console.log(date)
                                     return(
                                         <tr key={index}>

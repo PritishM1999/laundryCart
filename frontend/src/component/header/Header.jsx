@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import "../header/Header.css"
 const Header = () => {
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
     const signInClicked = () =>{
         
     }
@@ -19,7 +19,7 @@ const Header = () => {
                         <li>Career</li>
                         <li className='user'>
                             <div className='profile'></div>
-                            <div className='username' >User Name</div>
+                            <span className='username' >User Name</span>
                         </li>
                     </ul>
                 </div>
