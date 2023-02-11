@@ -4,9 +4,9 @@ const Order=require("../models/orderSchema");
 // Create Order controller
 const createOrder = async(req,res)=>{
     const neworder=req.body;
-    const {data}=req.userID;
+   //  const {data}=req.userID;
   
-    const order=await Order.create({...neworder, userId:data});
+    const order=await Order.create(neworder);
     if(!order){
        return res.status(400).json({
           message:"Order Creation Fail,Check post order, BE"
@@ -20,8 +20,8 @@ const createOrder = async(req,res)=>{
   //PastOrder Get Api
   const getPastOrder = async (req , res) =>{
    try{
-       let {data} = req.userID
-       let result = await Order.find({userId:data})
+      //  let {data} = req.userID
+       let result = await Order.find()
        res.status(201).json({
            status:"Success",
            result
