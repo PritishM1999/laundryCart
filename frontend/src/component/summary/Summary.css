@@ -1,10 +1,11 @@
 .summary-container{
     position: absolute;
-    top:0;
-    left:48vw;
+    top:-88px;
+    left: 35vw;
     height: 100vh;
     width: 60vw;
     background-color:#FFFFFF;
+    overflow-y: hidden;
 }
 .summary-header{
     display: flex;
@@ -42,7 +43,7 @@
     justify-content: center;
 }
 .stick{
-    width: 149px;
+    width: 80px;
     height: 2px;
     color: skyblue;
     border: 1px solid;
@@ -97,13 +98,13 @@
 }
 
 .postOrderDetailTableContainer{
-    width: 100%;
+    width: 60vw;
     border-collapse: collapse;
 }
 
 
 .orderDeatilColumn{
-    padding: .2rem .2rem;
+    padding: .2rem 0rem;
     border-bottom: 1px solid #d0cfcf;
 }
 .Add{

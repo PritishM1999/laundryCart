@@ -18,17 +18,19 @@ const OrderSummary = ({ orderedProduct, setIsSummary, isSummary, orderConfirmati
   }, []);
 
   const confirmClick = async () => {
+    console.log(JSON.parse(localStorage.getItem("user")).token);
    const check= fetch("http://localhost:4000/order/create", {
       method: "POST",
       body: JSON.stringify({
         price: grandTotal + 90,
-        userId: "63e287323f4df3a1609d7c95",
+        // userId: {localStorage.getItem("user")? req. },
         orderItems: orderedProduct,
         shippingAddress: "#223, 10th road, Jp Nagar, Bangalore",
         pincode: 560078,
       }),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
+        "authorization":`Bearer ${JSON.parse(localStorage.getItem("user")).token}`
       },
     })
       .then((response) => response.json())

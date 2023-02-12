@@ -12,6 +12,9 @@ const createProduct=async(req,res)=>{
     const data=req.body;
     const product=await Product.create(data);
     console.log(product);
+     res.status(201).json({
+      product
+     })
     } catch (error) {
        res.status(400).json({
           message:error.message

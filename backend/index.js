@@ -13,11 +13,10 @@ app.use(cors());
 
 app.use("/product", productRoutes)
 app.use("/order", orderRoutes)
-
 app.use("/user", userRoutes)
 
 
-mongoose.connect("mongodb://localhost:27017/testSchema", {useNewUrlParser:true, useUnifiedTopology:true})
+mongoose.connect("mongodb+srv://pritish:pritish@cluster0.jnxx4jh.mongodb.net/?retryWrites=true&w=majority", {useNewUrlParser:true, useUnifiedTopology:true})
 .then((data)=>{
    console.log(`Mongo DB Connected :${data.connection.host}`);
 })

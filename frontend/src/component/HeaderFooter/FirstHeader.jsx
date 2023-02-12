@@ -7,7 +7,7 @@ const Header = () => {
         console.log(JSON.parse(localStorage.getItem("user")));
         if (JSON.parse(localStorage.getItem("user"))) {
             localStorage.clear()
-            navigate('/SignIn')
+            navigate('/')
         }
     }
     return (
@@ -23,7 +23,6 @@ const Header = () => {
                         <li>Career</li>
                         <li className='user'>
                             <div className='s_in' onClick={() => { SignInClicked() }}>
-
                                 {JSON.parse(localStorage.getItem("user")) ? <span>{JSON.parse(localStorage.getItem("user"))?.user?.name}</span> : <span>Sign In</span>}
                             </div>
                         </li>

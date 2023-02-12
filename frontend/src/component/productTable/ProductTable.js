@@ -9,6 +9,7 @@ import Sidebar from "../sidebar/Sidebar";
 
 import "./productTable.css";
 import RowTable from "./RowTable";
+import Footer from "../Footer/Footer";
 
 const ProductTable = () => {
   const [products, setProduct] = useState([]);
@@ -103,6 +104,7 @@ const ProductTable = () => {
             {orderConfirmation ? <OrderConfrimation /> : null}
           </div>
         </div>
+        <Footer/>
     </>
   );
 };

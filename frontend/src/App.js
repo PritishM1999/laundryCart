@@ -15,7 +15,7 @@ function App() {
       <Routes>
        <Route path='/createOrder' element={<ProductTable/>}/> 
        <Route path='/pastOrder' element={<PastOrder/>}/>   
-       <Route path="/SignIn" element={<SignIn/>}/>
+       <Route path="/" element={<SignIn/>}/>
        <Route path="/SignUp" element={<SignUp/>}/> 
      </Routes>
      </BrowserRouter>

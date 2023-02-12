@@ -48,13 +48,13 @@ const SignUp = () => {
         alert("User already exists");
       }
       else{
-        navigate('/SignIn');
+        navigate('/');
       }
       
     };
 
   const backtoSignin = (event) => {
-    navigate('/SignIn')
+    navigate('/')
   }
 
 

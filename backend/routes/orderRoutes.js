@@ -1,5 +1,5 @@
 const express=require('express');
-const { createOrder, getPastOrder } = require('../controllers/orderController');
+const { createOrder, getPastOrder , updateOrder} = require('../controllers/orderController');
 const auth = require("../middleware/auth")
 
 const router=express.Router();
@@ -8,8 +8,9 @@ const router=express.Router();
 
 
 // router.post("/create", auth , createOrder); \
-router.post("/create",  createOrder);
+router.post("/create",auth,createOrder);
 router.get("/orders", getPastOrder)
+router.put("/orders/:id" , updateOrder)
 
 
 

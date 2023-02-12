@@ -1,10 +1,17 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+
+import user from '../../media/user.png'
 import "../header/Header.css"
 const Header = () => {
     const navigate = useNavigate()
-    const signInClicked = () =>{
-        
+    const signOutClicked = () =>{
+         if(!localStorage.getItem("user")){
+            navigate('/')
+         }else{
+            localStorage.clear();
+            navigate("/");
+         }
     }
     return (
         <>
@@ -18,8 +25,8 @@ const Header = () => {
                         <li>Pricing</li>
                         <li>Career</li>
                         <li className='user'>
-                            <div className='profile'></div>
-                            <span className='username' >User Name</span>
+                            <div className='profile'><img src={user} alt="Use Image" width="100%" height="100%" style={{"borderRadius":"50%"}}/></div>
+                            <span className='username'  onClick={()=> signOutClicked()}>{JSON.parse(localStorage.getItem("user"))?.user?.name}</span>
                         </li>
                     </ul>
                 </div>

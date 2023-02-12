@@ -32,7 +32,7 @@ const SignIn = () => {
       // console.log(mylogins.token);
       // console.log(mylogins.existingUser);
       console.log(mylogins.message);
-      console.log(mylogins.status);
+      console.log(mylogins.data );
 
       if(mylogins.message === "Invalid details"){
          alert("Invalid details")
@@ -42,8 +42,9 @@ const SignIn = () => {
       }
 
       else{
-        localStorage.setItem('user', JSON.stringify({token:mylogins.token, user:mylogins.existingUser}))
-        console.log(JSON.parse(localStorage.getItem("user")).user?._id);
+        localStorage.setItem('user', JSON.stringify({token:mylogins.token, user:mylogins.existingUser}))  
+        // localStorage.setItem("profile", JSON.stringify({...action?.data}))
+        console.log(JSON.parse(localStorage.getItem("user")).user);
   
         navigate('/pastOrder')
       }

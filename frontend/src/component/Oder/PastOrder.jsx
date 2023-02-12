@@ -19,6 +19,7 @@ const PastOrder = () => {
     const [statusCancelled , setStatusCancelled] = useState(false)
     const [id , setId] = useState("")
     const [queryId , setQueryId] = useState("")
+    const [updateData, setUpdateData] = useState("")
     const fetchData = async () => {
         const res = await fetch('http://localhost:4000/order/orders', {
             method: "Get",
@@ -26,15 +27,28 @@ const PastOrder = () => {
         });
 
         const newproducts = await  res.json();
-        setOrderDetails(newproducts.products)
+       
+        setOrderDetails(newproducts.result)
     } 
+
+
+    const updateOrder = async (id) => {
+        console.log(id);
+        const res = await fetch(`http://localhost:4000/order/orders/${id}`, {
+            method: "Put",
+            mode: "cors",
+            body: JSON.stringify(updateData)
+        })
+
+    }
+
     useEffect(() =>{
         fetchData()
     } ,[])
     // useEffect(() => {
     //     fetchData()
     // }, [])
-    // 
+    //
     const handleView = (id) =>{
         const data = orderDetails.find((ele) =>{
             return ele._id === id
@@ -52,14 +66,15 @@ const PastOrder = () => {
         setSummaryData(cancelOrderDetails)
         setCancelButton(!cancelButton)
         setId(id)
+        updateOrder(id)
     }
 
     const handleStatus = () =>{
         const updateStatus = orderDetails.find((ele) =>{
             return ele._id == id
         })
-        updateStatus.status= "Cancelled"
-        console.log(updateStatus.status)
+        updateStatus.status = "Cancelled"
+        setUpdateData(updateStatus._id);
     }
    const handleOnClickQuery = (query) =>{
     const newOrderDetails = orderDetails.find((item) =>{
@@ -80,7 +95,8 @@ const PastOrder = () => {
                 </div>
                 <div className='create-search'>
                     <div className='create'>
-                        <button className='create-btn' onClick={handleCreateBtn}>create</button>
+                        {orderDetails.length > 0 ?<button className='create-btn' onClick={handleCreateBtn}>create</button> :
+                          <button className='empty-create-button' onClick={handleCreateBtn}>create</button>  }
                     </div>
                     <div className='search'>
                         <input type="text" onChange={(e) =>{setQueryId(e.target.value)}} />
@@ -89,7 +105,9 @@ const PastOrder = () => {
                         </button>
                     </div>
                 </div>
-                <div className='t'>
+                 {orderDetails?.length == 0 ? <p className='noOrders'>No Orders avaialble</p>:null} 
+               {orderDetails.length > 0 &&
+               <div className='t'>
                     <table className='pastOrdertable'>
                         <thead>
                             <tr>
@@ -108,18 +126,18 @@ const PastOrder = () => {
                         <tbody>
                                 {orderDetails.map((item , index) =>{
                                   let date = moment(item.orderDate).format('DD-MMM-YYYY , hh:mm' );
-                                    console.log(date)
+                                    {/* console.log(date) */}
                                     return(
                                         <tr key={index}>
                                             <td>ORD{item._id[item._id.length -1]}</td>
-                                            <td>{date}</td>
+                                            <td id='date-time'>{date}</td>
                                             <td>{item.storeLocation}</td>
                                             <td>{item.storeCity}</td>
                                             <td>{item.storePhone}</td>
                                             <td>{item.orderItems.length}</td>
                                             <td>{item.price}</td>
-                                            {item.status == "Cancelled" ? <td className='red'>{item.status}</td>:<td>{item.status}</td> }
-                                            <td>{item.status === "Ready to pickup" ? <button className='link-cancel' onClick={() =>{handleCancel(item._id)}}>Cancel Order</button>: null}</td>
+                                            {item.status == "Cancelled" ? <td id='cancelled-red'>{item.status}</td>:<td>{item.status}</td> }
+                                            <td>{item.status == "Ready To Pickup" ? <button className='link-cancel' onClick={() =>{handleCancel(item._id)}}>Cancel Order</button>: null}</td>
                                             <td>
                                                  <button onClick={() =>{handleView(item._id)}}>
                                                           <FaEye />
@@ -131,7 +149,7 @@ const PastOrder = () => {
                             
                         </tbody>
                     </table>
-                </div>
+                </div>}
                 {isSummary ? <Summary summaryData={summaryData} setIsSummary={setIsSummary} isSummary={isSummary} cancelButton={cancelButton} setCancelButton={setCancelButton} setCancelConfirmation={setCancelConfirmation}  /> : null}
                 {cancelConfirmation ? <CancelConfirmation cancelConfirmation={cancelConfirmation} setCancelConfirmation={setCancelConfirmation} cancelStatus={cancelStatus} setCancelStatus={setCancelStatus} statusCancelled={statusCancelled} setStatusCancelled={setStatusCancelled} handleStatus={handleStatus} /> : null}
             </div>
