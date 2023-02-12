@@ -1,4 +1,4 @@
-const Users = require('../models/usersSchema');
+const { Users } = require('../models/userSchema');
 const { Result } = require("express-validator"); //middleware
 const { body, validationResult } = require('express-validator')
 
@@ -7,13 +7,14 @@ const secret = "LAUNDRYKEY";
 
 
 
-const registerUser = (body('email').isEmail(),
+const registerUser = (
+    body('email').isEmail(),
     body('phone').isNumeric(),
     body('password').isLength({ min: 6, max: 16 }),
     body('name').isAlphanumeric(), async (req, res) => {
 
         const data = req.body;
-
+        // console.log(data);
         try {
             ////if user already exists
             const existingUser = await Users.findOne({ $or: [{ phone: data.phone }, { email: data.email }] });
@@ -24,6 +25,7 @@ const registerUser = (body('email').isEmail(),
 
             //// storing new user
             const user = await Users.create(req.body);
+            console.log(user);
             res.status(201).json({
                 status: "User registered sucessfully",
                 user
@@ -32,6 +34,7 @@ const registerUser = (body('email').isEmail(),
             console.log(req.body);
         }
         catch (e) {
+            // console.log(data);
             res.status(500).json({
                 status: "Failed",
                 message: e.message
@@ -45,7 +48,7 @@ const loginUser = async (req, res) => {
     const data = req.body;
     try {
         ////if user already exists - & checking either phone or pass and password
-        const existingUser = await Users.findOne({ $or: [{ phone: data.phone }, { email: data.email }], $and: [{ password: data.password }] });
+        const existingUser = await Users.findOne({ $or: [{ phone: data.value }, { email: data.value }], $and: [{ password: data.password }] });
 
         if (!existingUser) {
             return res.status(400).json({

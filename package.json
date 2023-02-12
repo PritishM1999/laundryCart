@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "moment": "^2.29.4",
+    "nodemon": "^2.0.20",
+    "react-icons": "^4.7.1",
+    "react-router-dom": "^6.8.1"
+  }
+}

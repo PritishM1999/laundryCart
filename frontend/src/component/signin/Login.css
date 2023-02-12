@@ -1,0 +1,117 @@
+.container2{
+    display: flex;
+    justify-content: center;
+}
+
+.regdiv{
+    width: 50%;
+    height: 600px;
+    border: whitesmoke;
+}
+
+.regdiv h1{
+    justify-content: center;
+    align-self: center;
+    font-size: 5rem;
+    color: #5861AE;
+    font-style: normal;
+    font-family: Arial, sans-serif;
+    margin-left: 15%;
+    margin-right: 30%;
+    padding-top: 20%;
+    font-weight: bolder;
+}
+
+.regdiv h3{
+    font-weight: lighter;
+    margin-left: 15%;
+    margin-right: 30%;
+    padding-top: 5%;
+    color: grey;
+}
+
+.regdiv p{
+    font-weight: lighter;
+    margin-left: 15%;
+    margin-right: 30%;
+    padding-top: 10%;
+    color: grey;
+}
+
+.regdiv button{
+    color: #4552C1;
+    margin-left: 15%;
+    margin-right: 30%;
+    margin-top: 20px;
+    height: 40px;
+    width: 100px;
+    border-color: #4552C1;
+    border-radius: 5%;
+    background-color: white;
+    font-weight: bold;
+}
+
+.sindiv{
+    /* flex:1; */
+    width: 50%;
+    height: 740px;
+    background-color: #B9C0FD1A;
+}
+
+#inp1{
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px;
+    border: none;
+    border-bottom: 2px solid #4552C1;
+    margin-left: 20%;
+    margin-top: 60px;
+    background-color: #b9c0fd04;
+}
+
+#inp2{
+    flex: 1;
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px;
+    border: none;
+    border-bottom: 2px solid #4552C1;
+    margin-left: 20%;
+    margin-top: 40px;
+    background-color: #b9c0fd04;
+}
+
+.sindiv h1{
+    font-family: Arial, sans-serif;
+    color: #5861AE;
+    margin-left: 20%;
+    margin-right: 30%;
+    margin-top: 20%;
+    font-weight: lighter;
+}
+
+.sindiv button{
+    color: white;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 20px;
+    height: 40px;
+    width: 100px;
+    border-color: #4552C1;
+    border-radius: 5%;
+    background-color: #4552C1;
+    font-weight: bold;
+    margin-top: 10%;
+    margin-left: 30%;
+}
+
+#fpass{
+    margin-left: 54%;
+    margin-right: 25%;
+    font-weight: bold;
+    color: #4552C1;
+}
+
+.sindiv span{
+    margin-left: -40px;
+}

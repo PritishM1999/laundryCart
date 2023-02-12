@@ -1,0 +1,195 @@
+.section-div{
+    display: flex;
+    justify-content: center;
+    /* width: 100vw; */
+}
+
+.signin-div{
+    /* flex:1; */
+    width: 30%;
+    height: 640px;
+    border: whitesmoke;
+}
+
+.signin-div h1{
+    justify-content: center;
+    align-self: center;
+    font-size: 3rem;
+    color: #5861AE;
+    font-style: normal;
+    font-family: Arial, sans-serif;
+    margin-left: 15%;
+    margin-right: 30%;
+    padding-top: 35%;
+    font-weight: bolder;
+}
+
+.signin-div h3{
+    font-weight: lighter;
+    margin-left: 15%;
+    margin-right: 30%;
+    padding-top: 5%;
+    color: grey;
+}
+
+.signin-div p{
+    font-weight: lighter;
+    margin-left: 15%;
+    margin-right: 30%;
+    padding-top: 30%;
+    color: grey;
+}
+
+.signin-div button{
+    color: #4552C1;
+    margin-left: 15%;
+    margin-right: 30%;
+    margin-top: 20px;
+    height: 40px;
+    width: 100px;
+    border-color: #4552C1;
+    border-radius: 5%;
+    background-color: white;
+    font-weight: bold;
+}
+
+.form-div{
+    /* flex:1; */
+    margin-top: 2px;
+    width: 70%;
+    height: 640px;
+    background-color: #F8F9FF;
+}
+
+.form-div h1{
+    font-family: Arial, sans-serif;
+    color: #5861AE;
+    margin-left: 5rem;
+    margin-right: 30%;
+    margin-top: 5%;
+    font-weight: lighter;
+}
+
+.form-div button{
+    color: white;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 20px;
+    height: 40px;
+    width: 100px;
+    border-color: #4552C1;
+    border-radius: 5%;
+    background-color: #4552C1;
+    font-weight: bold;
+    margin-top: 10%;
+    margin-left: 30%;
+}
+
+#name{
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px;
+    border: none;
+    border-bottom: 2px solid #4552C1;
+    margin-left: 5rem;
+    margin-top: 60px;
+    background-color: #f8f9ff;
+}
+
+#email{
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px;
+    border: none;
+    border-bottom: 2px solid #4552C1;
+    margin-left: 8rem;
+    margin-top: 20px;
+    background-color: #f8f9ff;
+}
+
+
+#phone{
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px;
+    border: none;
+    border-bottom: 2px solid #4552C1;
+    margin-left: 5rem;
+    margin-top: 20px;
+    background-color: #f8f9ff;
+}
+
+#state{
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px;
+    border: none;
+    border-bottom: 2px solid #4552C1;
+    margin-left: 8rem;
+    margin-top: 20px;
+    background-color: #f8f9ff;
+
+}
+
+#address{
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px;
+    border: none;
+    border-bottom: 2px solid #4552C1;
+    margin-left: 8rem;
+    margin-top: 20px;
+    background-color: #f8f9ff;
+}
+
+#pincode{
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px;
+    border: none;
+    border-bottom: 2px solid #4552C1;
+    margin-left: 5rem;
+    margin-top: 20px;
+    background-color: #f8f9ff;
+}
+
+#district{
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px;
+    border: none;
+    border-bottom: 2px solid #4552C1;
+    margin-left: 5rem;
+    margin-top: 20px;
+    background-color: #f8f9ff;
+}
+
+#paswd{
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px;
+    border: none;
+    border-bottom: 2px solid #4552C1;
+    margin-left: 8rem;
+    margin-top: 20px;
+    background-color: #f8f9ff;
+}
+
+#check{
+    height: 15px;
+    width: 15px;
+    margin-top: 45px;
+    margin-left: 25%;
+    color: #5861AE;
+}
+
+#checkspan{
+    padding-left: 15px;
+    color: #5861AE;
+    text-decoration: underline;
+}
+
+#mysubmit-form{
+    margin-top: 55px;
+    margin-left: 45%;
+}
