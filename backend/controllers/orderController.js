@@ -24,9 +24,10 @@ const createOrder = async(req,res)=>{
  };
   //PastOrder Get Api
   const getPastOrder = async (req , res) =>{
+   console.log(req.userID.data)
    try{
       //  let {data} = req.userID
-       let result = await Order.find()
+       let result = await Order.find({userId:req.userID.data})
        res.status(201).json({
            status:"Success",
            result

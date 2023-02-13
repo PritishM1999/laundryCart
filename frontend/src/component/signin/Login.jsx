@@ -22,7 +22,7 @@ const SignIn = () => {
       console.log(`Submitted: ${value} - ${value}`);  
       console.log(`Submitted: ${value} - ${password}`);
 
-      const res = await fetch("http://localhost:4000/user/login", {
+      const res = await fetch("https://localhost:4000/user/login", {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({value , password}),
@@ -32,7 +32,7 @@ const SignIn = () => {
       // console.log(mylogins.token);
       // console.log(mylogins.existingUser);
       console.log(mylogins.message);
-      console.log(mylogins.data );
+      console.log(mylogins.data);
 
       if(mylogins.message === "Invalid details"){
          alert("Invalid details")

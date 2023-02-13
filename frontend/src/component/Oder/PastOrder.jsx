@@ -11,6 +11,7 @@ import moment from "moment";
 const PastOrder = () => {
     const navigate = useNavigate()
     const [orderDetails, setOrderDetails] = useState([])
+    const [userId , setUserId] = useState("")
     const [summaryData , setSummaryData] = useState([])
     const [isSummary , setIsSummary] = useState(false)
     const [cancelStatus , setCancelStatus] = useState(true)
@@ -21,20 +22,26 @@ const PastOrder = () => {
     const [queryId , setQueryId] = useState("")
     const [updateData, setUpdateData] = useState("")
     const fetchData = async () => {
-        const res = await fetch('http://localhost:4000/order/orders', {
+        
+        const res = await fetch("http://localhost:4000/order/orders", {
             method: "Get",
             mode: "cors",
-        });
-
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+                "authorization":`Bearer ${JSON.parse(localStorage.getItem("user")).token}`
+              },
+        })
+        // https://laundry-service-cart.onrender.com/
+        // setUserId(JSON.parse(localStorage.getItem("user")).user._id)
         const newproducts = await  res.json();
        
         setOrderDetails(newproducts.result)
+        
     } 
-
 
     const updateOrder = async (id) => {
         console.log(id);
-        const res = await fetch(`http://localhost:4000/order/orders/${id}`, {
+        const res = await fetch(` http://localhost:4000/order/orders/${id}`, {
             method: "Put",
             mode: "cors",
             body: JSON.stringify(updateData)
@@ -44,11 +51,35 @@ const PastOrder = () => {
 
     useEffect(() =>{
         fetchData()
+        
+            // const newData =  orderDetails.find((ele) =>{
+            //    return  userId == ele.userId
+                
+            // })
+            // // console.log(data)
+            // setOrderDetails([newData])
+    
     } ,[])
     // useEffect(() => {
     //     fetchData()
     // }, [])
     //
+
+    // const setData = async (orders) =>{
+    //     let data = []
+    //     const newData = await orders.find((ele) =>{
+    //         if(userId === ele.userId){
+    //             data.push(ele)
+    //         }
+    //     })
+    //     // console.log(data)
+    //     setOrderDetails(data)
+    //    return localStorage.setItem("orderDetails",JSON.stringify(data))
+       
+    // }
+
+
+
     const handleView = (id) =>{
         const data = orderDetails.find((ele) =>{
             return ele._id === id
@@ -85,6 +116,7 @@ const PastOrder = () => {
    const handleCreateBtn = () =>{
     navigate("/createOrder")
    }
+   console.log(orderDetails)
     return (
         <>
         <Header />
@@ -96,7 +128,7 @@ const PastOrder = () => {
                 <div className='create-search'>
                     <div className='create'>
                         {orderDetails.length > 0 ?<button className='create-btn' onClick={handleCreateBtn}>create</button> :
-                          <button className='empty-create-button' onClick={handleCreateBtn}>create</button>  }
+                          <button className='empty-create-button' onClick={handleCreateBtn}>create</button> }
                     </div>
                     <div className='search'>
                         <input type="text" onChange={(e) =>{setQueryId(e.target.value)}} />

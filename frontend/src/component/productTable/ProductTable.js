@@ -19,7 +19,7 @@ const ProductTable = () => {
   const [searchBar, SetSearchBar] = useState("");
 
   const fetchProducts = async (id = "") => {
-    const res = await fetch(`http://localhost:4000/product/products`, {
+    const res = await fetch(` https://laundry-service-cart.onrender.com/product/products`, {
       method: "Get",
       mode: "cors",
     });

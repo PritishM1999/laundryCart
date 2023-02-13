@@ -19,7 +19,7 @@ const OrderSummary = ({ orderedProduct, setIsSummary, isSummary, orderConfirmati
 
   const confirmClick = async () => {
     console.log(JSON.parse(localStorage.getItem("user")).token);
-   const check= fetch("http://localhost:4000/order/create", {
+   const check= fetch(" https://localhost:4000/order/create", {
       method: "POST",
       body: JSON.stringify({
         price: grandTotal + 90,

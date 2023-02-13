@@ -9,8 +9,10 @@ const router=express.Router();
 
 // router.post("/create", auth , createOrder); \
 router.post("/create",auth,createOrder);
-router.get("/orders", getPastOrder)
-router.put("/orders/:id" , updateOrder)
+
+router.get("/orders",auth , getPastOrder)
+
+router.put("/orders/:id" ,auth ,  updateOrder)
 
 
 
